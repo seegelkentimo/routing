@@ -2,7 +2,7 @@ package model;
 
 /**
  *
- * @author OstBot, PartyRazorHolland, Seegelkernspaltung
+ * @author Ostbot, PartyRazorHolland, Seegelkernspaltung
  */
 public class RoutingGraph {
 
