@@ -7,7 +7,7 @@ package model;
 
 /**
  *
- * @author user
+ * @author Ostbot, PartyRazorHolland, Seegelkernspaltung
  */
 public class Neighborship {
 

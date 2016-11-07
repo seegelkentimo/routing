@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author user
+ * @author Ostbot, PartyRazorHolland, Seegelkernspaltung
  */
 public class RoutingNode {
 
