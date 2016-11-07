@@ -1,16 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author Ostbot, PartyRazorHolland, Seegelkernspaltung
- */
+/*
+    @author Ostbot, PartyRazorHolland, Seegelkernspaltung
+*/
+
 public class RoutingNode {
 
     private final String name;
@@ -31,5 +26,4 @@ public class RoutingNode {
     public ArrayList<Neighborship> getNeighbors() {
         return neighbors;
     }
-
 }

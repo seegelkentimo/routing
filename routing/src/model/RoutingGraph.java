@@ -2,10 +2,9 @@ package model;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author Ostbot, PartyRazorHolland, Seegelkernspaltung
- */
+/*
+    @author Ostbot, PartyRazorHolland, Seegelkernspaltung
+*/
 public class RoutingGraph {
 
     private final int[][] distances;
@@ -38,12 +37,10 @@ public class RoutingGraph {
             } else {
                 currentCost = calculateCost(neighbor.getNeighbor(), target, visited);
             }
-            if ((minCost < 0) || ((currentCost > 0) && (currentCost < minCost))) {
+            if ( (minCost < 0) || ( (currentCost > 0) && (currentCost < minCost) ) ) {
                 minCost = currentCost;
             }
         }
-
         return minCost;
     }
-
 }
