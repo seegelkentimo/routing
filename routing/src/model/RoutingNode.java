@@ -13,6 +13,7 @@ public class RoutingNode {
 
     public RoutingNode(String name) {
         this.name = name;
+        this.neighbors = new ArrayList();
     }
 
     public void addNeighbor(RoutingNode neighbor, int distance) {
