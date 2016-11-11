@@ -9,39 +9,33 @@ public class RoutingGraph {
 
     private final int[][] distances;
     private final String[] nodeNames;
+    private RoutingNode graph;
 
     public RoutingGraph(int[][] distances, String[] nodeNames) {
         this.distances = distances;
         this.nodeNames = nodeNames;
-    }
-
-    public int[][] getDistances() {
-        return distances;
-    }
-
-    public String[] getNodeNames() {
-        return nodeNames;
+        this.graph = null;
     }
     
-    public void buildGraph(int[][] a, String[] b) {
+    public void buildGraph() {
         
-        for (int row = 0; row < a.length; row++) {
+        for (int row = 0; row < distances.length; row++) {
             
-            System.out.println("Knoten: "+nodeNames[row]);
-            RoutingNode n = new RoutingNode(nodeNames[row]);
+//            System.out.println("Knoten: "+nodeNames[row]);
+            RoutingNode graph = new RoutingNode(nodeNames[row]);
             
-            for (int col = 0; col < a[row].length; col++) {
-                if (a[row][col] == 0 || a[row][col] == -1) continue; 
+            for (int col = 0; col < distances[row].length; col++) {
+                if (distances[row][col] == 0 || distances[row][col] == -1) continue; 
                 
-                System.out.println("NodeName: "+nodeNames[col]+" "+a[row][col]);
-                n.addNeighbor((new RoutingNode(nodeNames[col])), a[row][col]);
+//                System.out.println("NodeName: "+nodeNames[col]+" "+a[row][col]);
+                graph.addNeighbor((new RoutingNode(nodeNames[col])), distances[row][col]);
             }
-            System.out.println("==================");
-            System.out.println("Nachbarn: ");
-            for (int k = 0; k < n.getNeighbors().size(); k++) {
-                System.out.println(n.getNeighbors().get(k).getNeighbor().getName());
-            }
-            System.out.println("==================");
+//            System.out.println("==================");
+//            System.out.println("Nachbarn: ");
+//            for (int k = 0; k < graph.getNeighbors().size(); k++) {
+//                System.out.println(graph.getNeighbors().get(k).getNeighbor().getName());
+//            }
+//            System.out.println("==================");
         }
     }
 
@@ -64,5 +58,24 @@ public class RoutingGraph {
             }
         }
         return minCost;
+    }
+    
+    /********************************* Setter *********************************/
+    
+    public void setGraph(RoutingNode graph) {
+        this.graph = graph;
+    }
+        
+    /********************************* Getter *********************************/
+    public RoutingNode getGraph() {
+        return graph;
+    }
+
+    public int[][] getDistances() {
+        return distances;
+    }
+
+    public String[] getNodeNames() {
+        return nodeNames;
     }
 }

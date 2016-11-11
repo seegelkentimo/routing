@@ -20,6 +20,6 @@ public class Main {
 
     public static void main(String[] args) {
         RoutingGraph topology = new RoutingGraph(distances, nodes);
-        topology.buildGraph(distances, nodes);
+        topology.buildGraph();
     }
 }
