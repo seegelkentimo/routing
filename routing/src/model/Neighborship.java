@@ -14,6 +14,7 @@ public class Neighborship {
         this.neighbor = neighbor;
     }
 
+    /********************************* Getter *********************************/  
     public int getDistance() {
         return distance;
     }

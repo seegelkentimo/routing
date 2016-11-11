@@ -20,6 +20,7 @@ public class RoutingNode {
         this.neighbors.add(new Neighborship(neighbor, distance));
     }
 
+    /********************************* Getter *********************************/
     public String getName() {
         return name;
     }

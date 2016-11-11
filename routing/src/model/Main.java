@@ -14,10 +14,6 @@ public class Main {
 
     private static final String[] nodes = {"Hamburg", "Hannover","Berlin","Frankfurt","Leipzig","Dresden"};
 
-    public Main() {
-        
-    }
-
     public static void main(String[] args) {
         RoutingGraph topology = new RoutingGraph(distances, nodes);
         topology.buildGraph();
