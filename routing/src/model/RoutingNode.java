@@ -2,10 +2,7 @@ package model;
 
 import java.util.ArrayList;
 
-/*
-    @author Ostbot, PartyRazorHolland, Seegelkernspaltung
-*/
-
+/* @author Ostbot, PartyRazorHolland, Seegelkernspaltung */
 public class RoutingNode {
 
     private final String name;
@@ -21,11 +18,7 @@ public class RoutingNode {
     }
 
     /********************************* Getter *********************************/
-    public String getName() {
-        return name;
-    }
-
-    public ArrayList<Neighborship> getNeighbors() {
-        return neighbors;
-    }
+    public String getName() { return name; }
+    
+    public ArrayList<Neighborship> getNeighbors() { return neighbors; }
 }

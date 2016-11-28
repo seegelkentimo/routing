@@ -2,19 +2,17 @@ package model;
 
 import java.util.ArrayList;
 
-/*
-    @author Ostbot, PartyRazorHolland, Seegelkernspaltung
-*/
+/* @author Ostbot, PartyRazorHolland, Seegelkernspaltung */
 public class RoutingGraph {
 
     private final int[][] distances;
     private final String[] nodeNames;
-    private RoutingNode graph;
+    private RoutingNode[] graph;
 
     public RoutingGraph(int[][] distances, String[] nodeNames) {
         this.distances = distances;
         this.nodeNames = nodeNames;
-        this.graph = null;
+        this.graph = new RoutingNode[nodeNames.length];
     }
     
     public void buildGraph() {
@@ -22,20 +20,31 @@ public class RoutingGraph {
         for (int row = 0; row < distances.length; row++) {
             
 //            System.out.println("Knoten: "+nodeNames[row]);
-            RoutingNode graph = new RoutingNode(nodeNames[row]);
+            RoutingNode tmp = new RoutingNode(nodeNames[row]);
             
             for (int col = 0; col < distances[row].length; col++) {
                 if (distances[row][col] == 0 || distances[row][col] == -1) continue; 
                 
-//                System.out.println("NodeName: "+nodeNames[col]+" "+a[row][col]);
-                graph.addNeighbor((new RoutingNode(nodeNames[col])), distances[row][col]);
+//                System.out.println("NodeName: "+nodeNames[col]+" "+distances[row][col]);
+                tmp.addNeighbor((new RoutingNode(nodeNames[col])), distances[row][col]);
             }
-//            System.out.println("==================");
-//            System.out.println("Nachbarn: ");
-//            for (int k = 0; k < graph.getNeighbors().size(); k++) {
-//                System.out.println(graph.getNeighbors().get(k).getNeighbor().getName());
-//            }
-//            System.out.println("==================");
+            graph[row] = tmp;
+ //           System.out.println("==================");
+ //           System.out.println("Nachbarn: ");
+ //           for (int k = 0; k < graph.getNeighbors().size(); k++) {
+ //               System.out.println(graph.getNeighbors().get(k).getNeighbor().getName()+" : "+graph.getNeighbors().get(k).getDistance());
+ //          }
+ //           System.out.println("==================");
+        }
+    }
+    
+    public void printGraph() {
+        System.out.println("Size = "+graph.length);
+        for(int i=0;i<graph.length;i++) {
+            System.out.println("++++++++++++++++++\nNode: "+graph[i].getName()+"\n++++++++++++++++++\nNeighbor :: Distance");
+            for (Neighborship neighbor : graph[i].getNeighbors()) {
+                System.out.println(neighbor.getNeighbor().getName()+" :: "+neighbor.getDistance());
+            }
         }
     }
 
@@ -61,21 +70,12 @@ public class RoutingGraph {
     }
     
     /********************************* Setter *********************************/
-    
-    public void setGraph(RoutingNode graph) {
-        this.graph = graph;
-    }
+    //public void setGraph(RoutingNode graph) { this.graph = graph; }
         
     /********************************* Getter *********************************/
-    public RoutingNode getGraph() {
-        return graph;
-    }
+    public RoutingNode[] getGraph() { return graph; }
 
-    public int[][] getDistances() {
-        return distances;
-    }
+    public int[][] getDistances() { return distances; }
 
-    public String[] getNodeNames() {
-        return nodeNames;
-    }
+    public String[] getNodeNames() { return nodeNames; }
 }
